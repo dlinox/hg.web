@@ -1,5 +1,5 @@
 
-const BASE_URL_API = 'http://carip.goyeneche.test/api/';
+const BASE_URL_API = 'https//goyeneche.linox.net.pe/api/';
 const getGeneralInformation = async () => {
     const response = await fetch(`${BASE_URL_API}general-information`);
     const data = await response.json();
