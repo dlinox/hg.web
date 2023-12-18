@@ -41,8 +41,6 @@
   </head>
 
   <body>
-
-
     <!-- Start Header Top 
     ============================================= -->
     <div class="top-bar-area">
@@ -159,10 +157,20 @@
                     >
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="/especialidades-medicas/">Especialidades Medicas</a>
+                        <a href="/especialidades-medicas/"
+                          >Especialidades Medicas</a
+                        >
                       </li>
-                      <li><a href="/apoyo-al-diagnostico/">Apoyos al diagnostico</a></li>
-                      <li><a href="/oficinas administrativas/">Oficinas administrativas</a></li>
+                      <li>
+                        <a href="/apoyo-al-diagnostico/"
+                          >Apoyos al diagnostico</a
+                        >
+                      </li>
+                      <li>
+                        <a href="/oficinas administrativas/"
+                          >Oficinas administrativas</a
+                        >
+                      </li>
                     </ul>
                   </li>
 
@@ -176,19 +184,21 @@
                     >
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="/cartera-de-servicios/">Cartera de servicios</a>
+                        <a href="/cartera-de-servicios/"
+                          >Cartera de servicios</a
+                        >
                       </li>
                       <li>
-                        <a href="/circuitos-de-atencion/">Circuitos de atención</a>
+                        <a href="/circuitos-de-atencion/"
+                          >Circuitos de atención</a
+                        >
                       </li>
                       <li>
                         <a href="#">Mesa de Partes</a>
                       </li>
 
                       <li>
-                        <a href="#"
-                          >Libro de reclamaciones</a
-                        >
+                        <a href="#">Libro de reclamaciones</a>
                       </li>
                     </ul>
                   </li>
@@ -220,9 +230,7 @@
                         <a href="#">Aula virtual</a>
                       </li>
                       <li>
-                        <a href="/publicaciones/"
-                          >Informes y publicaciones</a
-                        >
+                        <a href="/publicaciones/">Informes y publicaciones</a>
                       </li>
                     </ul>
                   </li>
@@ -260,6 +268,26 @@
       </div>
     </div>
     <!-- End Breadcrumb -->
+
+    <!-- Start Our About
+    ============================================= -->
+    <div class="about-area features-area default-padding">
+      <!-- Shape -->
+      <div class="shape">
+        <img src="assets/img/shape/3.svg" alt="Shape" />
+      </div>
+      <!-- End Shape -->
+      <div class="container-medium">
+        <div class="about-items features-item-box">
+          <div class="row">
+            <div class="">
+              <div class="row specialty_list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Our About -->
 
     <!-- Star Footer
     ============================================= -->
@@ -337,40 +365,48 @@
       $(document).ready(function () {
         const BASE_URL = "https://goyeneche.linox.net.pe/";
 
-        //http://carip.goyeneche.test/api/doctors
+        // https://goyeneche.linox.net.pe/api/especialidades-medicas
+        //specialty_list
+
         $.ajax({
-          url: BASE_URL + "api/doctors",
+          url: BASE_URL + "api/especialidades-medicas",
           type: "GET",
           dataType: "json",
           success: function (data) {
-            console.log(data);
-            var htmlDoctorItem = "";
-
-            $.each(data, function (key, value) {
-              htmlDoctorItem += `
-              <div class="col-lg-4 col-md-6 single-item">
-              <div class="item">
-                <div class="thumb">
-                  <img src="${value.photo_url}" alt="Thumb" />
-                  <div class="button">
-                    <a href="">Get Appoinment</a>
+            var htmlContainer = "";
+            $.each(data, function (key, item) {
+              htmlContainer += `
+              <div class="col-lg-6 col-md-6 single-item mb-4">
+                <div class="item">
+                  <div class="thumb">
+                    <img src="${item.image_url}" alt="Thumb" class="w-100" />
+                  </div>
+                  <div class="content-box">
+                    <div class="info-title">
+                      <i class="flaticon-stethoscope"></i>
+                      <h4><a href="#"> ${item.name}  </a></h4>
+                    </div>
+                  </div>
+                  <div class="info">
+                    <p>
+                     ${item.description}
+                    </p>
+        
                   </div>
                 </div>
-                <div class="info">
-                  <h4>${value.full_name}</h4>
-                  <span>${value.specialty_name}</span>
-                </div>
               </div>
-            </div>
               `;
             });
 
-            $(".doctor-items .row").html(htmlDoctorItem);
+            $(".specialty_list").html(htmlContainer);
           },
         });
 
+        /*
 
-        
+          
+        */
+
         $.ajax({
           // url: "http://carip.goyeneche.test/api/areas",
           url: BASE_URL + "api/areas",

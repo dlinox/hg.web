@@ -41,8 +41,6 @@
   </head>
 
   <body>
-
-
     <!-- Start Header Top 
     ============================================= -->
     <div class="top-bar-area">
@@ -159,10 +157,20 @@
                     >
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="/especialidades-medicas/">Especialidades Medicas</a>
+                        <a href="/especialidades-medicas/"
+                          >Especialidades Medicas</a
+                        >
                       </li>
-                      <li><a href="/apoyo-al-diagnostico/">Apoyos al diagnostico</a></li>
-                      <li><a href="/oficinas administrativas/">Oficinas administrativas</a></li>
+                      <li>
+                        <a href="/apoyo-al-diagnostico/"
+                          >Apoyos al diagnostico</a
+                        >
+                      </li>
+                      <li>
+                        <a href="/oficinas administrativas/"
+                          >Oficinas administrativas</a
+                        >
+                      </li>
                     </ul>
                   </li>
 
@@ -176,19 +184,21 @@
                     >
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="/cartera-de-servicios/">Cartera de servicios</a>
+                        <a href="/cartera-de-servicios/"
+                          >Cartera de servicios</a
+                        >
                       </li>
                       <li>
-                        <a href="/circuitos-de-atencion/">Circuitos de atención</a>
+                        <a href="/circuitos-de-atencion/"
+                          >Circuitos de atención</a
+                        >
                       </li>
                       <li>
                         <a href="#">Mesa de Partes</a>
                       </li>
 
                       <li>
-                        <a href="#"
-                          >Libro de reclamaciones</a
-                        >
+                        <a href="#">Libro de reclamaciones</a>
                       </li>
                     </ul>
                   </li>
@@ -220,9 +230,7 @@
                         <a href="#">Aula virtual</a>
                       </li>
                       <li>
-                        <a href="/publicaciones/"
-                          >Informes y publicaciones</a
-                        >
+                        <a href="/publicaciones/">Informes y publicaciones</a>
                       </li>
                     </ul>
                   </li>
@@ -265,22 +273,21 @@
     ============================================= -->
     <div class="about-area default-padding">
       <div class="container">
-          <div class="about-items">
-              <div class="row">
-                  <div class="col-lg-7 thumb-box">
-                      <div class="thumb">
-                          <i class="fas fa-heartbeat"></i>
-                          <img src="/assets/img/hospitalgoyeneche.jpg" alt="Thumb">
-                          <img src="/assets/img/hg-1.jpg" alt="Thumb">
-                      </div>
-                  </div>
-                  <div class="col-lg-5 info">
-                      <h5>¿Quienes somos?</h5>
-                      <h2>Bienvenido  al hospita Goyeneche</h2>
-                      <div class="about_us">
-                          
-                      <div>
-                      <!-- <ul>
+        <div class="about-items">
+          <div class="row">
+            <div class="col-lg-7 thumb-box">
+              <div class="thumb">
+                <i class="fas fa-heartbeat"></i>
+                <img src="/assets/img/hospitalgoyeneche.jpg" alt="Thumb" />
+                <img src="/assets/img/hg-1.jpg" alt="Thumb" />
+              </div>
+            </div>
+            <div class="col-lg-5 info">
+              <h5>¿Quienes somos?</h5>
+              <h2>Bienvenido al hospita Goyeneche</h2>
+              <div class="about_us">
+                <div>
+                  <!-- <ul>
                           <li>
                               <div class="info">
                                   <h4>Emergency care</h4>
@@ -293,12 +300,14 @@
                               </div>
                           </li>
                       </ul> -->
-                  </div>
+                </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
-  </div>
-  <!-- End Our About -->
+    </div>
+    <!-- End Our About -->
 
     <!-- Star Footer
     ============================================= -->
@@ -366,7 +375,7 @@
     <!-- <script src="../assets/js/isotope.pkgd.min.js"></script> -->
     <!-- <script src="../assets/js/imagesloaded.pkgd.min.js"></script> -->
     <!-- <script src="../assets/js/count-to.js"></script> -->
-    
+
     <script src="../assets/js/circle-progress.js"></script>
     <script src="../assets/js/jquery.nice-select.min.js"></script>
     <script src="../assets/js/bootsnav.js"></script>
@@ -376,7 +385,6 @@
       $(document).ready(function () {
         const BASE_URL = "https://goyeneche.linox.net.pe/";
 
-      
         //http://carip.goyeneche.test/api/quienes-somos
 
         $.ajax({
@@ -389,8 +397,7 @@
 
             console.log(data);
 
-           
-              htmlQuienesSomos += `${data.about_us}`;
+            htmlQuienesSomos += `${data.about_us}`;
 
             $(".about_us").html(htmlQuienesSomos);
 
@@ -398,7 +405,6 @@
           },
         });
 
-        
         $.ajax({
           // url: "http://carip.goyeneche.test/api/areas",
           url: BASE_URL + "api/areas",
